@@ -1,0 +1,21 @@
+import pandas as pd
+import numpy as np
+
+# import dataset
+df = pd.read_csv('Airbnb.csv')
+
+# check dataset
+print(df.shape)
+print(df.info())
+df.head()
+
+# missing data
+
+# check the number of missing value
+print(df.isnull().sum())
+print('-'*40)
+
+# check the percentage of missing value 
+for col in df.columns:
+    pct_missing = np.mean(df[col].isnull())
+    print('{} - {}%'.format(col, round(pct_missing*100)))
